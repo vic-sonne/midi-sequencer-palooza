@@ -11,7 +11,7 @@ const Index = () => {
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
         <header className="border-b border-gray-200 bg-white">
-          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <button className="p-2 md:hidden">
               <span className="sr-only">Open menu</span>
               <svg 
@@ -25,9 +25,11 @@ const Index = () => {
               </svg>
             </button>
             
-            <h1 className="text-center text-xl md:text-2xl font-medium text-sequencer-primary">
-              MIDI Stepper
-            </h1>
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+              <h1 className="text-center text-2xl md:text-3xl font-bold bg-gradient-to-r from-sequencer-primary to-purple-400 bg-clip-text text-transparent">
+                MIDI STEPPER
+              </h1>
+            </div>
             
             <Button variant="outline" className="flex items-center gap-2 rounded-full">
               <User className="h-4 w-4" />

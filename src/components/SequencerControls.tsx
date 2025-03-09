@@ -99,23 +99,23 @@ const SequencerControls = () => {
   }, [state.bpm]);
 
   return (
-    <div className="flex items-center justify-between gap-4 my-4">
+    <div className="flex items-center justify-between gap-4 my-3">
       <Button
         size="icon"
         variant="default"
-        className={`rounded-full h-14 w-14 ${state.isPlaying ? 'bg-sequencer-primary' : 'bg-zinc-800'}`}
+        className={`rounded-full h-12 w-12 ${state.isPlaying ? 'bg-sequencer-primary' : 'bg-zinc-800'}`}
         onClick={togglePlay}
         disabled={!state.midiAccessGranted || !state.selectedMidiOutput}
       >
         {state.isPlaying ? (
-          <Pause className="h-6 w-6" />
+          <Pause className="h-5 w-5" />
         ) : (
-          <Play className="h-6 w-6 ml-1" />
+          <Play className="h-5 w-5 ml-1" />
         )}
       </Button>
 
-      <div className="flex-1 flex items-center gap-4">
-        <span className="text-sm font-semibold text-zinc-500 w-8">60</span>
+      <div className="flex-1 flex items-center gap-4 max-w-[300px]">
+        <span className="text-sm font-semibold text-zinc-500 w-6">60</span>
         <Slider
           value={[state.bpm]}
           min={60}

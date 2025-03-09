@@ -21,17 +21,17 @@ const MidiSequencer = () => {
 
         <div className="flex-1 md:order-1 overflow-x-auto">
           <div className="min-w-[700px]">
-            {/* Step numbers */}
+            {/* Step numbers - rendered as non-clickable step markers for perfect alignment */}
             <div className="grid grid-cols-16 gap-1 mb-1 pl-[88px]">
               {Array.from({ length: 16 }, (_, i) => (
                 <div 
                   key={`step-${i + 1}`} 
                   className={`
-                    flex items-center justify-center text-xs font-medium
-                    ${[0, 4, 8, 12].includes(i) ? 'text-sequencer-primary font-bold' : 'text-gray-400'}
+                    flex items-center justify-center text-xs font-medium h-6 rounded
+                    ${[0, 4, 8, 12].includes(i) ? 'bg-sequencer-primary/10 text-sequencer-primary font-bold' : 'bg-transparent text-transparent'}
                   `}
                 >
-                  {i + 1}
+                  {[0, 4, 8, 12].includes(i) ? i + 1 : ''}
                 </div>
               ))}
             </div>
