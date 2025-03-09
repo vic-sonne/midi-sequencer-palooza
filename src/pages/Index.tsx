@@ -2,8 +2,6 @@
 import React from 'react';
 import { SequencerProvider } from '@/context/SequencerContext';
 import MidiSequencer from '@/components/MidiSequencer';
-import { Button } from '@/components/ui/button';
-import { User } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -31,10 +29,7 @@ const Index = () => {
               </h1>
             </div>
             
-            <Button variant="outline" className="flex items-center gap-2 rounded-full">
-              <User className="h-4 w-4" />
-              <span className="hidden md:inline">Login</span>
-            </Button>
+            {/* Login button removed */}
           </div>
         </header>
         
