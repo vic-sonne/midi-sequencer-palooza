@@ -38,7 +38,9 @@ const Index = () => {
         
         {/* Main Content */}
         <main className="container mx-auto py-6 px-4">
-          <MidiSequencer />
+          <div className="flex flex-col items-center">
+            <MidiSequencer />
+          </div>
         </main>
       </div>
     </SequencerProvider>

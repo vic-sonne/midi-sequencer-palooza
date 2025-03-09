@@ -65,36 +65,36 @@ const SequencerTrack: React.FC<SequencerTrackProps> = ({
 
   return (
     <div className="flex items-center gap-2 mb-2 w-full">
-      <div className="sequencer-track-selector min-w-24">
-        <Music className="h-4 w-4 mr-1" />
-        <Select value={note} onValueChange={handleNoteChange}>
-          <SelectTrigger className="border-0 p-0 bg-transparent text-white shadow-none focus:ring-0">
-            <SelectValue placeholder="Note" />
-          </SelectTrigger>
-          <SelectContent>
-            {NOTES.map((noteOption) => (
-              <SelectItem key={noteOption} value={noteOption}>
-                {noteOption}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className="sequencer-track-selector min-w-16">
-        <Select value={channel.toString()} onValueChange={handleChannelChange}>
-          <SelectTrigger className="border-0 p-0 bg-transparent text-white shadow-none focus:ring-0">
-            <SelectValue placeholder="Ch" />
-          </SelectTrigger>
-          <SelectContent>
-            {CHANNELS.map((ch) => (
-              <SelectItem key={ch} value={ch.toString()}>
-                {ch}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <ChevronDown className="h-3 w-3" />
+      <div className="flex gap-1 items-center">
+        <div className="sequencer-track-selector h-8 min-w-14">
+          <Select value={note} onValueChange={handleNoteChange}>
+            <SelectTrigger className="border-0 p-0 bg-transparent text-white shadow-none focus:ring-0 h-6">
+              <SelectValue placeholder="Note" />
+            </SelectTrigger>
+            <SelectContent>
+              {NOTES.map((noteOption) => (
+                <SelectItem key={noteOption} value={noteOption}>
+                  {noteOption}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        
+        <div className="sequencer-track-selector h-8 min-w-10">
+          <Select value={channel.toString()} onValueChange={handleChannelChange}>
+            <SelectTrigger className="border-0 p-0 bg-transparent text-white shadow-none focus:ring-0 h-6">
+              <SelectValue placeholder="Ch" />
+            </SelectTrigger>
+            <SelectContent>
+              {CHANNELS.map((ch) => (
+                <SelectItem key={ch} value={ch.toString()}>
+                  {ch}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <div className="flex-1 grid grid-cols-16 gap-1">
@@ -105,6 +105,7 @@ const SequencerTrack: React.FC<SequencerTrackProps> = ({
               sequencer-step aspect-square rounded bg-sequencer-step cursor-pointer
               ${active ? 'active' : ''}
               ${currentStep === index ? 'ring-2 ring-sequencer-primary/50' : ''}
+              ${[0, 4, 8, 12].includes(index) ? 'border-l-2 border-sequencer-primary/25' : ''}
             `}
             onClick={() => toggleStep(index)}
           />

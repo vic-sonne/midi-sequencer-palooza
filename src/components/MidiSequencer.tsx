@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Music } from 'lucide-react';
 import { useSequencer } from '@/context/SequencerContext';
 import MidiDeviceSelector from './MidiDeviceSelector';
 import SequencerTrack from './SequencerTrack';
@@ -10,21 +9,27 @@ const MidiSequencer = () => {
   const { state } = useSequencer();
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-sm">
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="w-full md:w-64 flex-shrink-0">
+    <div className="w-full max-w-6xl mx-auto p-4 lg:p-6 bg-white rounded-lg shadow-sm">
+      <div className="mb-6">
+        <SequencerControls />
+      </div>
+      
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="w-full md:w-64 md:order-2 flex-shrink-0">
           <MidiDeviceSelector />
         </div>
 
-        <div className="flex-1">
-          <SequencerControls />
-          
-          <div className="mt-6">
-            <div className="grid grid-cols-16 gap-1 mb-4">
+        <div className="flex-1 md:order-1 overflow-x-auto">
+          <div className="min-w-[700px]">
+            {/* Step numbers */}
+            <div className="grid grid-cols-16 gap-1 mb-1 pl-[88px]">
               {Array.from({ length: 16 }, (_, i) => (
                 <div 
                   key={`step-${i + 1}`} 
-                  className="flex items-center justify-center text-xs font-medium text-gray-500"
+                  className={`
+                    flex items-center justify-center text-xs font-medium
+                    ${[0, 4, 8, 12].includes(i) ? 'text-sequencer-primary font-bold' : 'text-gray-400'}
+                  `}
                 >
                   {i + 1}
                 </div>
