@@ -1,5 +1,9 @@
 # Welcome to the online midi sequencer
 
+## Try it yourself!
+
+[https://midi-sequencer-palooza.lovable.app/](https://midi-sequencer-palooza.lovable.app/)
+
 ## How can I contribute?
 
 1. Create a fork of the project
